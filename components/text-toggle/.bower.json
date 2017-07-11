@@ -1,0 +1,41 @@
+{
+  "name": "text-toggle",
+  "description": "Show one of two strings based on a condition. Clickability optional.",
+  "authors": [
+    "Jacob Phillips (https://github.com/jifalops)"
+  ],
+  "license": "MIT",
+  "main": "text-toggle.html",
+  "keywords": [
+    "text",
+    "toggle",
+    "condition",
+    "if",
+    "then",
+    "true",
+    "false",
+    "button"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0"
+  },
+  "devDependencies": {
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+  },
+  "resolutions": {
+    "polymer": "^2.0.0"
+  },
+  "homepage": "https://github.com/jifalops/text-toggle",
+  "_release": "45e980445f",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "45e980445f62f1ceb103b2870c8b12b2205db44f"
+  },
+  "_source": "https://github.com/jifalops/text-toggle.git",
+  "_target": "master",
+  "_originalSource": "jifalops/text-toggle",
+  "_direct": true
+}
