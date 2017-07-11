@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>text-toggle demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../text-toggle.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+        .circle {
+          background-color:blue;
+          height:24px;
+          width:24px;
+          border-radius:50%
+        }
+        text-toggle {
+          font-weight: bold;
+          font-family: 'monospace';
+        }
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <p>`text-toggle` text is styled for demo.</p>
+      <h3>Basic text-toggle demo</h3>
+      <demo-snippet>
+        <template>
+          <text-toggle id="ex1" t="True" f="False"></text-toggle><br/>
+          <button onclick="document.getElementById('ex1').toggle();">Toggle</button>
+          <p></p>
+          <i>Click text below</i><br/>
+          <text-toggle active t="Clickable" f="I am"></text-toggle><br/>
+        </template>
+      </demo-snippet>
+      <h3>Using Polymer bindings</h3>
+      <demo-snippet>
+        <dom-bind>
+          <template>
+            <i>Circle is</i><br/>
+            <text-toggle active cond="{{cond}}" t="hidden" f="showing"></text-toggle>
+            <div hidden$="[[cond]]" class="circle"></div>
+          </template>
+        </dom-bind>
+      </demo-snippet>
+    </div>
+  </body>
+</html>
