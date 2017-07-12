@@ -52,11 +52,21 @@
             <text-toggle link cond="{{cond}}" t="true" f="false"></text-toggle>
             <br/><br/>
 
+            5. Signal for change of read-only value.
+            <text-toggle
+              click-events
+              cond="[[readOnly]]"
+              on-cond-changed="toggleReadOnly"
+              t="true"
+              f="false">
+            </text-toggle>
+
             <script>
               var scope = document.getElementById('scope');
-              console.log('scope', scope);
               scope.cond = false;
+              scope.readOnly = false;
               scope.toggle = function() { scope.cond = !scope.cond; };
+              scope.toggleReadOnly = function() { scope.readOnly = !scope.readOnly; };
             </script>
 
           </template>
