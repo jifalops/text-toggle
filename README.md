@@ -9,12 +9,8 @@ Show one of two strings based on a condition. Clickability optional.
 bower install --save jifalops/text-toggle
 ```
 
-## Usage
-1. Set the true/false text values (`t` and `f`).
-2. Set the `cond` property to toggle between the text values, and/or use
-  the `active` property to have the text change when clicked.
-
 ## Demo
+See full demo for examples using Polymer.
 <!--
 ```
 <custom-element-demo>
@@ -26,31 +22,46 @@ bower install --save jifalops/text-toggle
         font-weight: bold;
         font-family: 'monospace';
       }
-      .circle {
-        background-color:blue;
-        height:24px;
-        width:24px;
-        border-radius:50%
-      }
     </style>
     <next-code-block></next-code-block>
+    <script>
+      var reader = document.getElementById('reader');
+      var writer = document.getElementById('writer');
+      var cond = false;
+      function toggle() {
+        cond = !cond;
+        reader.cond = cond;
+        writer.cond = cond; // To mimic Polymer example
+      }
+      function read() {
+        cond = writer.cond;
+        reader.cond = cond;
+      }
+    </script>
   </template>
 </custom-element-demo>
 ```
 -->
 
 ```html
-<text-toggle id="ex1" t="True" f="False"></text-toggle><br/>
-<button onclick="document.getElementById('ex1').toggle()">Toggle</button><p/>
 
-<i>Click text below</i><br/>
-<text-toggle active t="Clickable" f="I am"></text-toggle><p/>
+1. Show text based on outside condition.<br/>
+<button onclick="toggle();">Toggle</button>
+<text-toggle id="reader" t="true" f="false"></text-toggle>
+<br/><br/>
 
-<i>Circle is</i><br/>
-<text-toggle active cond="{{cond}}" t="hidden" f="showing"></text-toggle>
-<div hidden$="[[cond]]" class="circle"></div>
 
-<i style="font-size:small">Polymer bindings demo may not work in this readme.</i>
+2. Using element as control.
+<text-toggle click-events t="true" f="false"></text-toggle>
+<br/><br/>
+
+3. As an HTML anchor.
+<text-toggle link t="true" f="false"></text-toggle>
+<br/><br/>
+
+4. Chaging an outside condition.
+<text-toggle id="writer" link t="true" f="false" onclick="setTimeout(read());"></text-toggle>
+<br/><br/>
 ```
 
 Full demo:

@@ -2,7 +2,9 @@
 
 <dom-module id="text-toggle">
   <template>
-    <span on-tap="_onTap">[[_if(cond, t, f)]]</span>
+    <span hidden$="[[link]]" on-tap="_onTap">[[output]]</span>
+    <a hidden$="[[!link]]" href="javascript:" on-tap="toggle"
+      ><span>[[output]]</span></a>
   </template>
 
   <script>
@@ -34,16 +36,34 @@
          */
         f: String,
         /**
-         * Whether `cond` should be toggled when the text is tapped.
+         * The string rendered in place of this element.
          */
-        active: {
+        output: {
+          type: String,
+          computed: '_computeOutput(cond, t, f)',
+          notify: true
+        },
+        /**
+         * Toggle when clicked/tapped. Overridden by `link`.
+         */
+        clickEvents: {
+          type: Boolean,
+          value: false
+        },
+        /**
+         * Wrap the text in an anchor (`<a href="javascript:">`) and responde to
+         * clicks/taps. Overrides `clickEvents`.
+         */
+        link: {
           type: Boolean,
           value: false
         }
       },
-      _if: function(cond, t, f) { return cond ? t : f; },
+      _computeOutput: function(cond, t, f) {
+        return cond ? t : f;
+      },
       _onTap: function(e) {
-        if (this.active) this.toggle();
+        if (this.clickEvents || this.link) this.toggle();
       },
       toggle: function() {
         this.cond = !this.cond;
