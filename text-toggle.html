@@ -2,6 +2,11 @@
 
 <dom-module id="text-toggle">
   <template>
+    <style>
+      :host {
+        display: inline-block;
+      }
+    </style>
     <span hidden$="[[link]]" on-tap="_onTap">[[output]]</span>
     <a hidden$="[[!link]]" href="javascript:" on-tap="toggle"
       ><span>[[output]]</span></a>
